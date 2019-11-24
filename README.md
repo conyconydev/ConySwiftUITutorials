@@ -56,3 +56,66 @@ struct ContentView_Preview: PreviewProvider {
 
 ### 스택을 사용하여 뷰 결합
 
+SwiftUI View를 생성 할 때 View body 속성에서 컨텐츠, 레이아웃 및 동작을 설명 한다.
+
+body 속성은 단일 뷰만 반환, 여러개를 스택에 결합하여 포함 할 수 있다. 
+
+
+
+### inspector, code 사용하기 편한걸로 적용하기.
+
+- Text 코드에서 Command - 클릭하여 Embed in VStack 클릭
+- 오른쪽 상단에 + 버튼을 눌러서 라이브러리를 연 다음 ( 단축키 : Command + Shift + L) Text를 드래그해서 추가한다.
+- VStack 이니셜라이저를 편집하여 앞 가장자리를 기준으로 뷰를 정렬한다. 기본적으로 스택은 내용을 축에 따라 중앙에 배치하고 상황에 맞는 간격을 제공한다.
+
+ ```swift
+
+struct ContentView: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Turtle Rock")
+                .font(.title)
+            Text("Joshua Tree National Park")
+                .font(.subheadline)
+        }
+    }
+}
+
+struct ContentView_Preview: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+ ```
+
+
+
+- HStack 
+
+```swift
+
+struct ContentView: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Turtle Rock")
+                .font(.title)
+            HStack {
+                Text("Joshua Tree National Park")
+                    .font(.subheadline)
+                Text("California")
+                    .font(.subheadline)
+            }
+        }
+    }
+}
+
+struct ContentView_Preview: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+```
+
+ 레아아웃이 장치의 전체 너비를 사용하도록 지시하려면 Spacer() 두개의 텍스트 뷰를 보유하는 가로 스택에 a를 추가하여 파크와 상태를 분리한다. 
+
+Spacer()는 대신 크기가 내용에 의해서만 정의 : 필요없이, 모든 부모 뷰의 공간은 포함보기 사용할 수 있도록 확장한다.

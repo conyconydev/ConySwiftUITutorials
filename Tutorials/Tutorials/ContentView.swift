@@ -10,14 +10,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("SwiftUITest!")
-            .font(.title)
-            
-        
+        VStack(alignment: .leading) {
+            Text("Turtle Rock")
+                .font(.title)
+            HStack {
+                Text("Joshua Tree National Park")
+                    .font(.subheadline)
+                Text("California")
+                    .font(.subheadline)
+            }
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ContentView_Preview: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
